@@ -1,0 +1,32 @@
+{
+  "name": "local-runbook-corpus",
+  "version": "1.0.0",
+  "description": "Local macOS troubleshooting and basic maintenance runbooks.",
+  "documents": [
+    {
+      "path": "runbooks/spotlight-recovery.md",
+      "title": "Spotlight Recovery Runbook",
+      "tags": ["macOS", "Spotlight", "indexing", "applications", "mdutil"]
+    },
+    {
+      "path": "runbooks/macos-routine-maintenance.md",
+      "title": "macOS Routine Maintenance",
+      "tags": ["macOS", "maintenance", "updates", "storage", "health-check"]
+    },
+    {
+      "path": "runbooks/network-connectivity-basics.md",
+      "title": "Network Connectivity Basics",
+      "tags": ["macOS", "network", "DNS", "Wi-Fi", "diagnostics"]
+    },
+    {
+      "path": "runbooks/launchd-user-service-recovery.md",
+      "title": "launchd User Service Recovery",
+      "tags": ["macOS", "launchd", "services", "logs", "recovery"]
+    },
+    {
+      "path": "runbooks/time-machine-backup-check.md",
+      "title": "Time Machine Backup Check",
+      "tags": ["macOS", "Time Machine", "backup", "tmutil", "verification"]
+    }
+  ]
+}

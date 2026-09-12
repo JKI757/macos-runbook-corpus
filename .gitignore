@@ -1,0 +1,16 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local/editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment files and credentials
+.env
+.env.*
+*.pem
+*.key
