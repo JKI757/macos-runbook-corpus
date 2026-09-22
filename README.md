@@ -23,5 +23,6 @@ A small, local-first corpus of operational runbooks for macOS troubleshooting an
 - [Network Connectivity Basics](runbooks/network-connectivity-basics.md) — identify whether a failure is local, gateway, DNS, or service-specific.
 - [launchd User Service Recovery](runbooks/launchd-user-service-recovery.md) — inspect and safely restart a known user-level launchd service.
 - [Time Machine Backup Check](runbooks/time-machine-backup-check.md) — verify backup status and investigate common backup failures.
+- [Running Development Builds from an SMB Share](runbooks/network-share-developer-execution.md) — diagnose network-path execution denial and enable the narrow Developer Tools exception.
 
 These runbooks are operational guidance, not a substitute for a current backup or vendor documentation.

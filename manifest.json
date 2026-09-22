@@ -27,6 +27,11 @@
       "path": "runbooks/time-machine-backup-check.md",
       "title": "Time Machine Backup Check",
       "tags": ["macOS", "Time Machine", "backup", "tmutil", "verification"]
+    },
+    {
+      "path": "runbooks/network-share-developer-execution.md",
+      "title": "Running Development Builds from an SMB Share on macOS",
+      "tags": ["macOS", "SMB", "Gatekeeper", "XProtect", "Developer Tools", "code signing"]
     }
   ]
 }
