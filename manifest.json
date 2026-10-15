@@ -4,6 +4,11 @@
   "description": "Local macOS troubleshooting and basic maintenance runbooks.",
   "documents": [
     {
+      "path": "runbooks/hermes-post-update-recovery.md",
+      "title": "Hermes WebUI and Matrix Recovery After a macOS Update",
+      "tags": ["macOS", "Hermes", "Matrix", "WebUI", "Python", "E2EE", "launchd", "recovery"]
+    },
+    {
       "path": "runbooks/spotlight-recovery.md",
       "title": "Spotlight Recovery Runbook",
       "tags": ["macOS", "Spotlight", "indexing", "applications", "mdutil"]

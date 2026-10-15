@@ -1,0 +1,59 @@
+diff --git a/bootstrap.py b/bootstrap.py
+index cf665fd8..86e1bb39 100755
+--- a/bootstrap.py
++++ b/bootstrap.py
+@@ -249,6 +249,44 @@ def discover_launcher_python(agent_dir: Path | None) -> str:
+     return shutil.which("python3") or shutil.which("python") or sys.executable
+ 
+ 
++def _activate_managed_agent_runtime(python_exe: str, agent_dir: Path | None) -> str:
++    """Use PM's interpreter AND committed packages before any third-party import.
++
++    The old agent venv is only a stdlib discovery host after PM migration.
++    Importing run_agent from it re-execs into an isolated store Python, which
++    cannot even import yaml until the selected dependency environment is added.
++    Resolve this on every launch rather than pinning a collectible generation.
++    """
++    if agent_dir is None or not (agent_dir / "pm" / "environments.py").is_file():
++        return python_exe
++    import json
++
++    script = (
++        "import sys, json\n"
++        "from pathlib import Path\n"
++        f"root = Path({str(agent_dir)!r})\n"
++        "sys.path.insert(0, str(root))\n"
++        "from hermes_cli._launchers import resolve_store_python\n"
++        "from pm.environments import activation_environment\n"
++        "python = resolve_store_python(root)\n"
++        "print(json.dumps({'python': str(python), 'env': activation_environment(root)})) "
++        "if python is not None else print('{}')\n"
++    )
++    check = subprocess.run(
++        [python_exe, "-c", script], capture_output=True, text=True,
++        env=os.environ.copy(), check=True, timeout=30,
++    )
++    runtime = json.loads(check.stdout)
++    if not runtime:
++        return python_exe
++    os.environ.update(runtime["env"])
++    # PM intentionally removes these: update() alone would retain stale values.
++    for name in ("PYTHONHOME", "VIRTUAL_ENV"):
++        os.environ.pop(name, None)
++    info(f"Using managed Hermes runtime: {runtime['python']}")
++    return runtime["python"]
++
++
+ def _python_can_run_webui_and_agent(python_exe: str, agent_dir: Path | None = None) -> bool:
+     script = "import yaml\nfrom run_agent import AIAgent\n"
+     env = os.environ.copy()
+@@ -570,7 +608,8 @@ def main() -> int:
+         install_hermes_agent()
+         agent_dir = discover_agent_dir()
+ 
+-    python_exe = ensure_python_has_webui_deps(discover_launcher_python(agent_dir), agent_dir)
++    launcher_python = _activate_managed_agent_runtime(discover_launcher_python(agent_dir), agent_dir)
++    python_exe = ensure_python_has_webui_deps(launcher_python, agent_dir)
+     state_dir = Path(
+         os.getenv("HERMES_WEBUI_STATE_DIR")
+         or Path(os.getenv("HERMES_HOME") or (Path.home() / ".hermes")) / "webui"

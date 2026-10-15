@@ -18,6 +18,7 @@ A small, local-first corpus of operational runbooks for macOS troubleshooting an
 
 ## Included runbooks
 
+- [Hermes WebUI and Matrix Post-Update Recovery](runbooks/hermes-post-update-recovery.md) — repair managed-runtime activation, macOS Matrix crypto dependencies, and gateway API configuration; includes the reusable bootstrap patch.
 - [Spotlight Recovery](runbooks/spotlight-recovery.md) — restore application indexing and repair the Spotlight UI.
 - [macOS Routine Maintenance](runbooks/macos-routine-maintenance.md) — safe health checks, updates, storage review, and restart guidance.
 - [Network Connectivity Basics](runbooks/network-connectivity-basics.md) — identify whether a failure is local, gateway, DNS, or service-specific.
