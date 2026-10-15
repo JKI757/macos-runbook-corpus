@@ -21,6 +21,7 @@ A small, local-first corpus of operational runbooks for macOS troubleshooting an
 - [Hermes WebUI and Matrix Post-Update Recovery](runbooks/hermes-post-update-recovery.md) — repair managed-runtime activation, macOS Matrix crypto dependencies, and gateway API configuration; includes the reusable bootstrap patch.
 - [Spotlight Recovery](runbooks/spotlight-recovery.md) — restore application indexing and repair the Spotlight UI.
 - [macOS Routine Maintenance](runbooks/macos-routine-maintenance.md) — safe health checks, updates, storage review, and restart guidance.
+- [HomeKit / Lutron Caséta Recovery](runbooks/homekit-lutron-caseta-recovery.md) — distinguish discovery from control connectivity and recover stuck HomeKit control by changing the active hub without resetting pairings.
 - [Network Connectivity Basics](runbooks/network-connectivity-basics.md) — identify whether a failure is local, gateway, DNS, or service-specific.
 - [launchd User Service Recovery](runbooks/launchd-user-service-recovery.md) — inspect and safely restart a known user-level launchd service.
 - [Time Machine Backup Check](runbooks/time-machine-backup-check.md) — verify backup status and investigate common backup failures.

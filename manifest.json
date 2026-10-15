@@ -4,6 +4,11 @@
   "description": "Local macOS troubleshooting and basic maintenance runbooks.",
   "documents": [
     {
+      "path": "runbooks/homekit-lutron-caseta-recovery.md",
+      "title": "HomeKit / Lutron Caséta Recovery",
+      "tags": ["macOS", "HomeKit", "Lutron", "Caseta", "HomePod", "Apple TV", "mDNS", "recovery"]
+    },
+    {
       "path": "runbooks/hermes-post-update-recovery.md",
       "title": "Hermes WebUI and Matrix Recovery After a macOS Update",
       "tags": ["macOS", "Hermes", "Matrix", "WebUI", "Python", "E2EE", "launchd", "recovery"]
